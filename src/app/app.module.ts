@@ -4,11 +4,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
+import { ChallengeComponent } from './challenge/challenge.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChallengeComponent
   ],
   imports: [
     BrowserModule,
