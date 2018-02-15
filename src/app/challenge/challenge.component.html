@@ -6,7 +6,7 @@
       <h1>Who do you challenge?</h1>
       <ng-template matStepLabel>Email Address to Challenge</ng-template>
       <mat-form-field>
-        <input matInput placeholder="Email to Challenge" formControlName="firstCtrl" required>
+        <input matInput placeholder="Email to Challenge" formControlName="emailCtrl" required>
       </mat-form-field>
       <div>
         <button mat-button matStepperNext>Next</button>
@@ -17,7 +17,7 @@
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Choose a challenge stache</ng-template>
       <h1>Which Mustache do you choose?</h1>
-      <mat-button-toggle-group formControlName="secondCtrl" #group="matButtonToggleGroup">
+      <mat-button-toggle-group formControlName="stacheCtrl" #group="matButtonToggleGroup">
         <mat-button-toggle value="FuManchu">
           <img class="img-responsive" src="assets/images/fu-manchu.png">
         </mat-button-toggle>
@@ -61,7 +61,7 @@
       <h1>How much do you challenge?</h1>
       <ng-template matStepLabel>Dollar Amount to Challenge</ng-template>
       <mat-form-field>
-        <input matInput placeholder="Challenge Amount ($)" formControlName="thirdCtrl" required>
+        <input matInput placeholder="Challenge Amount ($)" formControlName="amountCtrl" required>
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>

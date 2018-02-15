@@ -17,18 +17,18 @@ export class ChallengeComponent implements OnInit {
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
+      emailCtrl: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+      stacheCtrl: ['', Validators.required]
     });
     this.thirdFormGroup = this._formBuilder.group({
-      thirdCtrl: ['', Validators.required]
+      amountCtrl: ['', Validators.required]
     });
   }
 
   submitChallenge(): void {
-    console.log('Checking state');
+    console.log('Values = ', this.firstFormGroup.value, this.secondFormGroup.value, this.thirdFormGroup.value);
   }
 
 }
