@@ -17,8 +17,8 @@
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Choose a challenge stache</ng-template>
       <h1>Which Mustache do you choose?</h1>
-      <mat-button-toggle-group #group="matButtonToggleGroup">
-        <mat-button-toggle value="Fu-Manchu">
+      <mat-button-toggle-group formControlName="secondCtrl" #group="matButtonToggleGroup">
+        <mat-button-toggle value="FuManchu">
           <img class="img-responsive" src="assets/images/fu-manchu.png">
         </mat-button-toggle>
         <mat-button-toggle value="Handlebar">
@@ -65,7 +65,7 @@
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Submit Your Challenge</button>
+        <button mat-button matStepperNext (click)="submitChallenge()">Submit Your Challenge</button>
       </div>
     </form>
   </mat-step>

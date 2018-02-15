@@ -27,4 +27,8 @@ export class ChallengeComponent implements OnInit {
     });
   }
 
+  submitChallenge(): void {
+    console.log('Checking state');
+  }
+
 }

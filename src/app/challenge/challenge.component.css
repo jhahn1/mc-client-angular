@@ -2,3 +2,7 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.selected-value {
+    margin: 15px 0;
+}
