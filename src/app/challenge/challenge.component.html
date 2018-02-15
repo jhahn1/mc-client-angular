@@ -3,7 +3,20 @@
 <mat-horizontal-stepper *ngIf="isChallenge" #stepper="matHorizontalStepper">
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
+      <h1>Who do you challenge?</h1>
+      <ng-template matStepLabel>Email Address to Challenge</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Email to Challenge" formControlName="firstCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Choose a challenge stache</ng-template>
+      <h1>Which Mustache do you choose?</h1>
       <mat-button-toggle-group #group="matButtonToggleGroup">
         <mat-button-toggle value="Fu-Manchu">
           <img class="img-responsive" src="assets/images/fu-manchu.png">
@@ -15,39 +28,28 @@
           <img class="img-responsive" src="assets/images/horseshoe_transparent.png">
         </mat-button-toggle>
         <!-- <mat-button-toggle value="paintersbrush">
-          <img class="img-responsive" src="assets/images/paintersbrush.png">
-        </mat-button-toggle>
-        <mat-button-toggle value="toothbrush">
-          <img class="img-responsive" src="assets/images/toothbrush.png">
-        </mat-button-toggle>
-        <mat-button-toggle value="pencil">
-          <img class="img-responsive" src="assets/images/pencil.png">
-        </mat-button-toggle>
-        <mat-button-toggle value="lampshade">
-          <img class="img-responsive" src="assets/images/lampshade.png">
-        </mat-button-toggle>
-        <mat-button-toggle value="horseshoe">
-          <img class="img-responsive" src="assets/images/horseshoe.png">
-        </mat-button-toggle>
-        <mat-button-toggle value="pencil">
-          <img class="img-responsive" src="assets/images/pencil.png">
-        </mat-button-toggle>
-        <mat-button-toggle value="toothbrush">
-          <img class="img-responsive" src="assets/images/toothbrush.png">
-        </mat-button-toggle> -->
+              <img class="img-responsive" src="assets/images/paintersbrush.png">
+            </mat-button-toggle>
+            <mat-button-toggle value="toothbrush">
+              <img class="img-responsive" src="assets/images/toothbrush.png">
+            </mat-button-toggle>
+            <mat-button-toggle value="pencil">
+              <img class="img-responsive" src="assets/images/pencil.png">
+            </mat-button-toggle>
+            <mat-button-toggle value="lampshade">
+              <img class="img-responsive" src="assets/images/lampshade.png">
+            </mat-button-toggle>
+            <mat-button-toggle value="horseshoe">
+              <img class="img-responsive" src="assets/images/horseshoe.png">
+            </mat-button-toggle>
+            <mat-button-toggle value="pencil">
+              <img class="img-responsive" src="assets/images/pencil.png">
+            </mat-button-toggle>
+            <mat-button-toggle value="toothbrush">
+              <img class="img-responsive" src="assets/images/toothbrush.png">
+            </mat-button-toggle> -->
       </mat-button-toggle-group>
-      <div class="example-selected-value">Selected value: {{group.value}}</div>
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Dollar Amount to Challenge</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Challenge Amount ($)" formControlName="secondCtrl" required>
-      </mat-form-field>
+      <div class="selected-value">{{group.value}}</div>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
@@ -56,9 +58,10 @@
   </mat-step>
   <mat-step [stepControl]="thirdFormGroup">
     <form [formGroup]="thirdFormGroup">
-      <ng-template matStepLabel>Email Address to Challenge</ng-template>
+      <h1>How much do you challenge?</h1>
+      <ng-template matStepLabel>Dollar Amount to Challenge</ng-template>
       <mat-form-field>
-        <input matInput placeholder="Email to Challenge" formControlName="thirdCtrl" required>
+        <input matInput placeholder="Challenge Amount ($)" formControlName="thirdCtrl" required>
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
