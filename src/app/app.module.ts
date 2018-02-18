@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { ChallengeComponent } from './challenge/challenge.component';
+import { AuthService } from './auth/auth.service';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -15,9 +17,10 @@ import { ChallengeComponent } from './challenge/challenge.component';
   imports: [
     BrowserModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
