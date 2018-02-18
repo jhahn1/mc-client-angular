@@ -1,5 +1,4 @@
 <button mat-raised-button *ngIf="!isChallenge" (click)="isChallenge = true" color="accent" id="toggle-challenge" class="challenge-button">Delcare a Movember Challenge!</button>
-
 <mat-horizontal-stepper *ngIf="isChallenge" #stepper="matHorizontalStepper">
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
