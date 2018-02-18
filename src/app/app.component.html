@@ -9,6 +9,14 @@
     <button mat-icon-button [mat-menu-trigger-for]="menu">
       <mat-icon>more_vert</mat-icon>
     </button>
+
+    <button mat-raised-button color="accent" id="loginBtn" class="auth-button" *ngIf="!auth.isAuthenticated()" (click)="auth.login()">
+      Log In
+    </button>
+
+    <button mat-raised-button color="accent" id="logoutBtn" class="auth-button" *ngIf="auth.isAuthenticated()" (click)="auth.logout()">
+      Log Out
+    </button>
   </mat-toolbar>
   <mat-menu x-position="before" #menu="matMenu">
     <button mat-menu-item>Option 1</button>
