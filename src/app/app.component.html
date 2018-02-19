@@ -1,29 +1,5 @@
 <div>
-  <mat-toolbar color="primary">
-    <span>
-      <img class="img-responsive" src="assets/images/stache_transparent.png">
-    </span>
-
-    <span>The Movember Challenge</span>
-
-    <button mat-raised-button color="accent" id="loginBtn" class="auth-button" *ngIf="!auth.isAuthenticated()" (click)="auth.login()">
-      Log In
-    </button>
-    <div *ngIf="auth.isAuthenticated()" class="auth-button">
-      <button mat-icon-button [mat-menu-trigger-for]="menu">
-        <mat-icon class="material-icons md-48">face</mat-icon>
-      </button>
-
-      <button mat-icon-button [mat-menu-trigger-for]="menu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-    </div>
-  </mat-toolbar>
-  <mat-menu x-position="before" #menu="matMenu">
-    <button mat-menu-item (click)="auth.logout()">Log Out</button>
-    <button mat-menu-item>Settings</button>
-  </mat-menu>
-
+  <app-header></app-header>
   <mat-card>
     <router-outlet></router-outlet>
   </mat-card>

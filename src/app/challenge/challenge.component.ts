@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { AuthService } from '../auth/auth.service';
+
 @Component({
   selector: 'app-challenge',
   templateUrl: './challenge.component.html',
@@ -13,7 +15,8 @@ export class ChallengeComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder) {
+   }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
