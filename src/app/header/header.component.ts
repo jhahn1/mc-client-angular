@@ -1,14 +1,13 @@
-import { Component, OnInit, Input, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, Input, AfterContentChecked } from '@angular/core';
 
 import { AuthService } from '../auth/auth.service';
-import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit, AfterViewChecked {
+export class HeaderComponent implements OnInit, AfterContentChecked {
 
  profile: any;
 
@@ -26,7 +25,7 @@ export class HeaderComponent implements OnInit, AfterViewChecked {
     }
   }
 
-  ngAfterViewChecked() {
+  ngAfterContentChecked() {
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;
     } else {
