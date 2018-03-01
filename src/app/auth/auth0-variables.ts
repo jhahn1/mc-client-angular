@@ -7,5 +7,5 @@ interface AuthConfig {
   export const AUTH_CONFIG: AuthConfig = {
     clientID: 'fbHeNaiAXtjRjpiZoAvYQRZsyfbrKMqP',
     domain: 'movemberchallenge.auth0.com',
-    callbackURL: 'http://localhost:4200/challenge'
+    callbackURL: 'http://localhost:4200/home'
   };
