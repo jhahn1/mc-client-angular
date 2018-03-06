@@ -9,16 +9,7 @@
     <button mat-raised-button color="accent" id="loginBtn" class="auth-button" *ngIf="!auth.isAuthenticated()" (click)="auth.login()">
       Log In
     </button>
-    <div *ngIf="auth.isAuthenticated() && !profile?.picture" class="auth-button">
-      <span>Hi, {{ profile?.nickname }}</span>
-      <button mat-icon-button [mat-menu-trigger-for]="menu">
-        <mat-icon class="material-icons md-48">face</mat-icon>
-      </button>
-      <button mat-icon-button [mat-menu-trigger-for]="menu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-    </div>
-    <div *ngIf="auth.isAuthenticated() && profile?.picture" class="auth-button">
+    <div *ngIf="auth.isAuthenticated()" class="auth-button">
       <div>
         <span>Hi, {{ profile?.nickname }}</span>
         <button mat-icon-button [mat-menu-trigger-for]="menu">

@@ -12,17 +12,5 @@ export class HeaderComponent {
   @Input('profile') profile: string;
 
   constructor(public auth: AuthService) {
-    // auth.handleAuthentication();
   }
-
-  // ngOnInit() {
-  //   if (this.auth.userProfile) {
-  //     this.profile = this.auth.userProfile;
-  //   } else {
-  //     this.auth.getProfile((err, profile) => {
-  //       this.profile = profile;
-  //     });
-  //   }
-  // }
-
 }

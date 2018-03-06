@@ -17,21 +17,22 @@ export class AuthService {
 
   userProfile: any;
 
-  constructor(public router: Router) {}
+  constructor(public router: Router) { }
 
   public login(): void {
     this.auth0.authorize();
   }
 
-  public handleAuthentication(): void {
+  public handleAuthentication(cb): void {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
-        this.router.navigate(['/home']);
+        this.getProfile((error, profile) => {
+          cb(error, profile);
+        });
       } else if (err) {
         this.router.navigate(['/home']);
         console.log(err);
-        alert(`Error: ${err.error}. Check the console for further details.`);
       }
     });
   }
@@ -41,12 +42,7 @@ export class AuthService {
     if (!accessToken) {
       return;
     }
-
-    const self = this;
     this.auth0.client.userInfo(accessToken, (err, profile) => {
-      if (profile) {
-        self.userProfile = profile;
-      }
       cb(err, profile);
     });
   }

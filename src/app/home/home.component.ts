@@ -12,7 +12,13 @@ export class HomeComponent implements OnInit {
   profile: any;
 
   constructor(public auth: AuthService) {
-    auth.handleAuthentication();
+    if (this.auth.userProfile) {
+      this.profile = this.auth.userProfile;
+    } else {
+      auth.handleAuthentication((err, profile) => {
+        this.profile = profile;
+      });
+    }
   }
 
   ngOnInit() {
