@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { AuthService } from '../auth/auth.service';
+
+interface IApiResponse {
+  message: string;
+}
 
 @Component({
   selector: 'app-challenge',
@@ -10,6 +15,8 @@ import { AuthService } from '../auth/auth.service';
 })
 export class ChallengeComponent implements OnInit {
 
+  API_URL: 'localhost:8080/challenge';
+  message: string;
   isChallenge = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -32,6 +39,15 @@ export class ChallengeComponent implements OnInit {
 
   submitChallenge(): void {
     console.log('Values = ', this.firstFormGroup.value, this.secondFormGroup.value, this.thirdFormGroup.value);
+    this.message = '';
+    this.http
+      .get<IApiResponse>(`${this.API_URL}/private`, {
+        headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('access_token')}`)
+      })
+      .subscribe(
+        data => this.message = data.message,
+        error => this.message = error
+      );
   }
 
 }
